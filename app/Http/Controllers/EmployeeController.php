@@ -23,8 +23,12 @@ class EmployeeController extends Controller
     public function index()
     {
         $pageTitle = 'Employee List';
-        confirmDelete();
-        return view('employee.index', compact('pageTitle'));
+        $positions = Position::all();
+
+        return view('employee.index', [
+            'pageTitle' => $pageTitle,
+            'positions' => $positions,
+        ]);
     }
 
 
